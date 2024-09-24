@@ -34,7 +34,7 @@ router.get('/id/:_id', async (req, res) => {
     }
 })
 
-router.put('/markAsCompleted', async (req, res) => {
+router.put('/markAsCompleted/:_id', async (req, res) => {
     try {
         const task = await Card.findByIdAndUpdate(
             req.params._id,

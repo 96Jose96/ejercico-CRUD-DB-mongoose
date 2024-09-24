@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const cardSchema = new mongoose.Schema({
     title: String,
-    completed: Boolean,
+    completed: { type: Boolean, default: false }
 }, { timestamps: true })
 
 const Card = mongoose.model('Card', cardSchema)
