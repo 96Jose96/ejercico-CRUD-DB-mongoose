@@ -4,9 +4,7 @@ const Card = require('../models/Task')
 
 router.post('/create', async (req, res) => {
     try {
-        const { title } = req.body
-        const newTask = new Card({ title })
-        await newTask.save()
+        const newTask = await Card.create(req.body)
         res.status(201).json(newTask)
     } catch (err) {
         res.status(500).json({ err: 'Create new task failed' })
