@@ -71,7 +71,7 @@ router.delete('/id:_id', async (req, res) => {
         }
         res.status(200).json({ message: 'Task deleted' })
     } catch (err) {
-        res.status.json({ err: 'Error getting task' })
+        res.status(500).json({ err: 'Error getting task' })
     }
 })
 
