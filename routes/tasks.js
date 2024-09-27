@@ -63,7 +63,7 @@ router.put('/id/:_id', async (req, res) => {
     }
 })
 
-router.delete('/id:_id', async (req, res) => {
+router.delete('/id/:_id', async (req, res) => {
     try {
         const task = await Card.findByIdAndDelete(req.params._id)
         if (!task) {
