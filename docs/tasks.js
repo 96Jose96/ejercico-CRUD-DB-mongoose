@@ -55,6 +55,53 @@ module.exports = {
                     500: { description: "Server error" }
                 }
             }
+        },
+
+        '/id/:_id': {
+            get: {
+                tags: {
+                    task: "get all tasks",
+                },
+                description: "get all tasks",
+                operationId: "getTasks",
+                parameters: [],
+                requestBody: {},
+                responses: {
+                    200: { description: "Get tasks sucessfully" },
+                    500: { description: "Server error" }
+                }
+            }
+        },
+
+        '/id/:_id': {
+            delete: {
+                tags: {
+                    task: "delete task"
+                },
+                description: "Delete task by id",
+                operationId: "deleteTask",
+                parameters: [
+                    {
+                        name: "_id",
+                        in: "path",
+                        schema: {
+                            $ref: "#/components/schemas/_id",
+                        },
+                        decription: "Id of Card to be deleted"
+                    },
+                ],
+                requestBody: {
+                    content: {
+                        "application/json": {
+                            schema: { $ref:  "components/schemas/CardSchema" },
+                        }
+                    }
+                },
+                responses: {
+                    200: { description: "Task deleted" },
+                    500: { description: "Server error" }
+                }
+            }
         }
     } 
 }
