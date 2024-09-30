@@ -11,7 +11,7 @@ app.use(express.json())
 
 app.use('/', router)
 
-app.use('/api-docs', swaggerUI.serve.swaggerUI.setup(docs))
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(docs))
 
 dbConnection()
 
