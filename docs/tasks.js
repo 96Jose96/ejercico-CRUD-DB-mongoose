@@ -11,7 +11,7 @@ module.exports = {
             content: {
               "application/json": {
                 schema: {
-                  $ref: "#/components/schemas/TaskBody",
+                  $ref: "#/components/schemas/TaskTitle",
                 },
               },
             },
@@ -67,7 +67,7 @@ module.exports = {
             content: {
               "application/json": {
                 schema: {
-                  $ref: "#/components/schemas/TaskBody",
+                  $ref: "#/components/schemas/TaskTitle",
                 },
               },
             },

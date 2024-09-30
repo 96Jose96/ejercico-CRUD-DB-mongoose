@@ -7,7 +7,7 @@ module.exports = {
                     title:{
                         type:'string',
                         description:"Title task",
-                        example:"Aprender a quitar las cosas que no nos hacen falta"
+                        example:"Learn Swagger"
                     }
                 }
             },
@@ -15,18 +15,18 @@ module.exports = {
               type:'object',
               properties:{
                   _id:{
-                    type:'objectId',
+                    type:'string',
                     description:"Id task",
                     example:"2378468732g23rg34764378g"
                 },
                 title:{
                       type:'string',
                       description:"Title task",
-                      example:"Aprender a quitar las cosas que no nos hacen falta"
+                      example:"Learn Swagger"
                 },
                 completed:{
                   type:'boolean',
-                  description:"finish task",
+                  description:"Mark a task completed",
                   example:"false"
                 }
               }
