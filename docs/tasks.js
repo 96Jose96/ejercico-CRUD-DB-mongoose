@@ -57,7 +57,7 @@ module.exports = {
             }
         },
 
-        '/id/:_id': {
+        '/': {
             get: {
                 tags: {
                     task: "get all tasks",
