@@ -1,107 +1,109 @@
 module.exports = {
     paths: {
-        '/create': {
-            post: {
-                tags: {
-                    Card: "create a card",
+      "/create": {
+        post: {
+          tsummary: "",
+          tags: ["Create a task"],
+          description: "Create task",
+          operationId: "createTask",
+          parameters: [],
+          requestBody: {
+            content: {
+              "application/json": {
+                schema: {
+                  $ref: "#/components/schemas/TaskBody",
                 },
-                description: "Create card",
-                operationId: "newTask",
-                parameters: [],
-                requestBody: {
-                    content: {
-                        "application/json": {
-                            schema: {
-                                $ref: "#/components/schemas/CardSchema",
-                            }
-                        }
-                    }
-                }
+              },
             },
-            responses: {
-                201: {
-                    description: "Card created successfully",
-                },
-                500: "Server error",
-            }
-        },
-
-        '/id/:_id': {
-            put: {
-                tags: {
-                    task: "Update title",
-                },
-                description: "Update Cards title",
-                operationId: "updateCard",
-                parameters: [
-                    {
-                        name: "_id",
-                        in: "path",
-                        schema: {
-                            $ref: "#/components/schemas/_id",
-                        },
-                        decription: "Id of Card to be updated"
-                    },
-                ],
-                requestBody: {
-                    content: {
-                        "application/json": {
-                            schema: { $ref:  "components/schemas/CardSchema" },
-                        }
-                    }
-                },
-                reponses: {
-                    200: { description: "Card updated sucessfully" },
-                    500: { description: "Server error" }
-                }
-            }
-        },
-
-        '/': {
-            get: {
-                tags: {
-                    task: "get all tasks",
-                },
-                description: "get all tasks",
-                operationId: "getTasks",
-                parameters: [],
-                requestBody: {},
-                responses: {
-                    200: { description: "Get tasks sucessfully" },
-                    500: { description: "Server error" }
-                }
-            }
-        },
-
-        '/id/:_id': {
-            delete: {
-                tags: {
-                    task: "delete task"
-                },
-                description: "Delete task by id",
-                operationId: "deleteTask",
-                parameters: [
-                    {
-                        name: "_id",
-                        in: "path",
-                        schema: {
-                            $ref: "#/components/schemas/_id",
-                        },
-                        decription: "Id of Card to be deleted"
-                    },
-                ],
-                requestBody: {
-                    content: {
-                        "application/json": {
-                            schema: { $ref:  "components/schemas/CardSchema" },
-                        }
-                    }
-                },
-                responses: {
-                    200: { description: "Task deleted" },
-                    500: { description: "Server error" }
-                }
-            }
+          },
+          responses: {
+            201: {
+              description: "Task created successfully",
+            },
+            500: {
+              description: "Server error",
+            },
+          },
         }
-    } 
-}
+      },
+      "/": {
+        get: {
+          summary: "",
+          tags: ["Get all tasks"],
+          description: "Get all tasks",
+          operationId: "getTask",
+          parameters: [],
+          responses: {
+            200: {
+              description: "Get all tasks successfully",
+              content: {
+                "application/json": {
+                  schema: {
+                    $ref: "#/components/schemas/Task",
+                  },
+                },
+              },
+            },
+            500: {
+              description: "Server error",
+            },
+          },
+        }
+      },
+      "/id/{_id}": {
+        put: {
+          summary: "",
+          tags: ["Update a task"],
+          description: "Update task",
+          operationId: "updateTask",
+          parameters: [
+            {
+              name: "_id",
+              in: "path",           
+              description: "Id of task to update"
+            }
+          ],
+          requestBody: {
+            content: {
+              "application/json": {
+                schema: {
+                  $ref: "#/components/schemas/TaskBody",
+                },
+              },
+            },
+          },
+          responses: {
+            200: {
+              description: "Task change successfully",
+            },
+            500: {
+              description: "Server error",
+            },
+          },
+        },
+        delete: {
+          summary: "",
+          tags: ["Delete a task"],
+          description: "Delete task",
+          operationId: "deleteTask",
+          parameters: [
+            {
+              name: "_id",
+              in: "path",           
+              description: "Id of task to delete"
+            }
+          ],
+          responses: {
+            200: {
+              description: "Task deteled successfully",
+            },
+            500: {
+              description: "Server error",
+            },
+          },
+        }
+  
+      },
+      
+    },
+  };
